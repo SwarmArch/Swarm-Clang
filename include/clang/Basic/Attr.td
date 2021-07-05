@@ -2773,20 +2773,22 @@ def InternalLinkage : InheritableAttr {
 // Swarm attributes
 
 def Swarmify : InheritableAttr {
-  let Spellings = [GCC<"swarmify">];
-  // TODO(mcj) later we could swarmify loops/functions?
+  let Spellings = [GCC<"swarmify">,
+                   CXX11<"scc", "swarmify">];
   let Subjects = SubjectList<[Function]>;
   let Documentation = [Undocumented];
 }
 
 def NoSwarmify : InheritableAttr {
-  let Spellings = [GCC<"noswarmify">];
+  let Spellings = [GCC<"noswarmify">,
+                   CXX11<"scc", "noswarmify">];
   let Subjects = SubjectList<[Function]>;
   let Documentation = [Undocumented];
 }
 
 def AssertSwarmified : InheritableAttr {
-  let Spellings = [GCC<"assertswarmified">];
+  let Spellings = [GCC<"assertswarmified">,
+                   CXX11<"scc", "assertswarmified">];
   let Subjects = SubjectList<[Function]>;
   let Documentation = [Undocumented];
 }
